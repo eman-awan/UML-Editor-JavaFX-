@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Main.MainController"
+            style="-fx-background-color: #f4f4f9; -fx-padding: 10;">
+    <top>
+        <VBox>
+            <!-- MenuBar for Help and Settings -->
+            <MenuBar style="-fx-background-color: #87CEEB; -fx-padding: 5;">
+                <Menu text="File" style="-fx-text-fill: white;">
+                    <MenuItem text="Settings" onAction="#handleSettingsAction" />
+                </Menu>
+                <Menu text="Help" style="-fx-text-fill: white;">
+                    <MenuItem text="About" onAction="#handleHelpAction" />
+                </Menu>
+            </MenuBar>
+            <!-- Application Title -->
+            <Label text="Project Manager"
+                   style="-fx-font-size: 24px; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"
+                   alignment="CENTER" />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER" prefWidth="200" style="-fx-padding: 10; -fx-background-color: #ecf0f1;">
+            <Label text="Diagrams in Project:"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+            <ListView fx:id="diagramListView" prefHeight="300" prefWidth="180"
+                      style="-fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-border-radius: 5;" />
+
+            <!-- Button Container -->
+            <HBox spacing="20" alignment="CENTER">
+                <!-- Add Class Diagram -->
+                <VBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="addClassDiagramIcon" fitHeight="70" fitWidth="70">
+                        <Image url="@../Icons/class-diagram.png" />
+                    </ImageView>
+                    <Button fx:id="addClassDiagramButton"
+                            text="Class Diagram"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+                </VBox>
+
+                <!-- Add Use Case Diagram -->
+                <VBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="addUseCaseDiagramIcon" fitHeight="70" fitWidth="70">
+                        <Image url="@../Icons/use-case-diagram.png" />
+                    </ImageView>
+                    <Button fx:id="addUseCaseDiagramButton"
+                            text="Use Case Diagram"
+                            style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+                </VBox>
+
+                <!-- Rename Diagram -->
+                <VBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="renameDiagramIcon" fitHeight="70" fitWidth="70">
+                        <Image url="@../Icons/rename_icon.png" />
+                    </ImageView>
+                    <Button fx:id="renameDiagramButton"
+                            text="Rename Diagram"
+                            style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <!-- Status Bar -->
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #bdc3c7;">
+            <Label text="Status: Ready"
+                   style="-fx-font-size: 14px; -fx-text-fill: #34495e;" />
+        </HBox>
+    </bottom>
+</BorderPane>

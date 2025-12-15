@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ToggleButton?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Main.UseCaseController">
+    <top>
+        <MenuBar style="-fx-background-color: #87CEEB; -fx-text-fill: white;">
+            <Menu text="File" style="-fx-text-fill: white;">
+                <MenuItem text="New" />
+                <MenuItem text="Open" />
+                <MenuItem onAction="#onSaveProjectClick" text="Save" />
+                <MenuItem text="Save As" />
+                <MenuItem onAction="#onCloseButtonClick" text="Close" />
+                <Menu text="Import">
+                    <MenuItem text="XML"/>
+                    <MenuItem onAction="#onLoadDiagram" text="JSON"/>
+                    <MenuItem text="Raw Form"/>
+                </Menu>
+                <Menu text="Export">
+                    <MenuItem onAction="#onPNGClick" text="PNG"/>
+                    <MenuItem text="XML"/>
+                    <MenuItem onAction="#onSaveUseCaseDiagram" text="JSON"/>
+                    <MenuItem text="Raw Form"/>
+                </Menu>
+                <MenuItem text="Exit" />
+            </Menu>
+            <Menu text="Edit" style="-fx-text-fill: white;">
+                <MenuItem text="Undo" />
+                <MenuItem text="Redo" />
+            </Menu>
+            <Menu text="Debug" style="-fx-text-fill: white;">
+                <MenuItem text="Toggle Checker" />
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.2, 0.8">
+            <VBox spacing="10.0" style="-fx-background-color: #F9FAFB; -fx-border-color: #D1D5DB; -fx-border-width: 1; -fx-padding: 10;">
+                <Label text="TOOLBOX" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4A5568;" />
+                <VBox spacing="8.0">
+                    <Label text="Classes" style="-fx-font-weight: bold; -fx-text-fill: #4A5568;" />
+                    <ToggleButton fx:id="useCaseButton" text="Use Case" onAction="#onAddUseCaseClick" style="-fx-background-color: #4299E1; -fx-text-fill: white;" />
+                    <ToggleButton fx:id="actorButton" text="Actor" onAction="#onAddActorClick" style="-fx-background-color: #4299E1; -fx-text-fill: white;" />
+                    <Button fx:id="usesButton" text="Use" onAction="#onDrawUsesClick" style="-fx-background-color: #63B3ED; -fx-text-fill: white;" />
+                    <Button fx:id="includesButton" text="Includes" onAction="#onDrawIncludeClick" style="-fx-background-color: #63B3ED; -fx-text-fill: white;" />
+                    <Button fx:id="extendsButton" text="Extends" onAction="#onDrawExtendsClick" style="-fx-background-color: #63B3ED; -fx-text-fill: white;" />
+                </VBox>
+                <VBox spacing="8.0">
+                    <Label text="Annotations" style="-fx-font-weight: bold; -fx-text-fill: #4A5568;" />
+                    <Button text="Text" style="-fx-background-color: #48BB78; -fx-text-fill: white;" />
+                    <Button text="Text Box" style="-fx-background-color: #48BB78; -fx-text-fill: white;" />
+                    <Button text="Generate Code" onAction="#onCodeGenerateClick" style="-fx-background-color: #48BB78; -fx-text-fill: white;" />
+                </VBox>
+            </VBox>
+
+            <Pane fx:id="canvas" style="-fx-background-color: #FFFFFF; -fx-border-color: #D1D5DB; -fx-border-width: 1;" />
+        </SplitPane>
+    </center>
+</BorderPane>
